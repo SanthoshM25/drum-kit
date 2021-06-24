@@ -1,15 +1,8 @@
-const cards = document.querySelectorAll(".card");
-const removeActiveCard = () => {
-  const activeCard = document.querySelector(".active");
-  activeCard.classList.remove("active");
-};
-
-const makeActiveCard = (card) => {
-  removeActiveCard();
-  card.classList.add("active");
-};
-cards.forEach((card) => {
-  card.addEventListener("click", () => {
-    makeActiveCard(card);
-  });
+window.addEventListener("keyup", (e) => {
+  const audio = document.querySelector(`audio[data-key=${e.code}]`);
+  if (!audio) {
+    return;
+  }
+  audio.currentTime = 0;
+  audio.play();
 });
